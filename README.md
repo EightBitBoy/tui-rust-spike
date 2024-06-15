@@ -12,3 +12,8 @@ Testing programming a text-based user interface with Rust
 
 ## Libraries
 https://ratatui.rs/
+
+## Todo read
+https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html
+
+## Done reading
