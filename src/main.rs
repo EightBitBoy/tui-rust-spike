@@ -1,5 +1,6 @@
 // https://www.rust-lang.org/learn/get-started
 // https://ratatui.rs/tutorials/hello-world/
+// https://ratatui.rs/tutorials/counter-app/basic-app/
 
 use crossterm::{
     event::{self, KeyCode, KeyEventKind},
@@ -10,14 +11,14 @@ use ratatui::{
     prelude::{CrosstermBackend, Stylize, Terminal},
     widgets::Paragraph,
 };
-use std::io::{stdout, Result};
+use std::io;
 
 
-fn main() -> Result<()> {
-    stdout().execute(EnterAlternateScreen)?;
+fn main() -> io::Result<()> {
+    io::stdout().execute(EnterAlternateScreen)?;
     enable_raw_mode()?;
 
-    let mut terminal = Terminal::new(CrosstermBackend::new(stdout()))?;
+    let mut terminal = Terminal::new(CrosstermBackend::new(io::stdout()))?;
     terminal.clear()?;
 
     loop {
@@ -40,7 +41,7 @@ fn main() -> Result<()> {
         }
     }
 
-    stdout().execute(LeaveAlternateScreen)?;
+    io::stdout().execute(LeaveAlternateScreen)?;
     disable_raw_mode()?;
     Ok(())
 }
